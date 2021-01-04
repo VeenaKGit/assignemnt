@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HeyURL!</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'heyurl/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'heyurl/style.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-sm-4">
+      <a class="navbar-brand" href="{%url 'index' %}">HeyURL!</a>
+    </nav>
+    {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+      </ul>
+    {% endif %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-8 offset-sm-2">
+            {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "heyurl/base.html" %}
+{% block content %}
+<div class="card-body">
+    <h2>Hurry! {{url}} received {{total}} clicks</h2>
+    {% load humanize %}
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Month</th>
+          <th scope="col">Day</th>
+          <th scope="col">Browser</th>
+          <th scope="col">Platform</th>
+          <th scope="col">Clicks</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for each in data %}
+          <tr>
+            <td>{{ each.created_at__month }}</td>
+            <td>{{ each.created_at__day }}</td>
+            <td>{{ each.browser }}</td>
+            <td>{{ each.platform }}</td>
+            <td>{{ each.count }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+{% endblock content %}
